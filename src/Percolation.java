@@ -26,8 +26,7 @@ public class Percolation {
 		for (int i=0; i<gridSize - virtualSites; i++) {
 			openSites[i] = closed;
 		}
-		
-		
+			
 	}
 	
 	// open site (row, col) if it is not open already
@@ -60,7 +59,7 @@ public class Percolation {
 	}
 	
 	private int xyTo1D(int x, int y) {
-		return (x%length)+(length*y);
+		return ((x-offset)%length)+(length*(y-offset));
 	}
 
 	public static void main(String[] args) {
