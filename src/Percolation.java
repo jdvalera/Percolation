@@ -5,7 +5,9 @@ public class Percolation {
 	WeightedQuickUnionUF uf;
 	int gridSize;
 	int length;
-	// 0 - closed, 1 - open
+	// 0 - Closed,
+	// 1 - Open
+	// 2 - Full
 	byte[] openSites;
 	int virtualSites = 2;
 	int offset = 1;
@@ -18,12 +20,14 @@ public class Percolation {
 		gridSize = (n*n) + virtualSites;
 		length = n;
 		
-		uf = new WeightedQuickUnionUF(n+virtualSites);
-		openSites = new byte[n+virtualSites];
+		uf = new WeightedQuickUnionUF(gridSize);
+		openSites = new byte[gridSize];
 		
-		for (int i=0; i<(n+virtualSites); i++) {
+		for (int i=0; i<gridSize - virtualSites; i++) {
 			openSites[i] = closed;
 		}
+		
+		
 	}
 	
 	// open site (row, col) if it is not open already
