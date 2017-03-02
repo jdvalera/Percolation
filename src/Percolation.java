@@ -4,8 +4,10 @@ public class Percolation {
 	
 	WeightedQuickUnionUF uf;
 	int gridSize;
+	int length;
 	// 0 - closed, 1 - open
 	byte[] openSites;
+	int virtualSites = 2;
 	int offset = 1;
 	byte closed = 0;
 	byte open = 1;
@@ -13,10 +15,13 @@ public class Percolation {
 	// create n-by-n grid, with all sites blocked
 	public Percolation(int n) {
 		
-		uf = new WeightedQuickUnionUF(n+offset);
-		openSites = new byte[n+offset];
+		gridSize = (n*n) + virtualSites;
+		length = n;
 		
-		for (int i=0; i<(n+offset); i++) {
+		uf = new WeightedQuickUnionUF(n+virtualSites);
+		openSites = new byte[n+virtualSites];
+		
+		for (int i=0; i<(n+virtualSites); i++) {
 			openSites[i] = closed;
 		}
 	}
@@ -48,6 +53,10 @@ public class Percolation {
 	public boolean percolates() {
 		return false;
 		
+	}
+	
+	private int xyTo1D(int x, int y) {
+		return (x%length)+(length*y);
 	}
 
 	public static void main(String[] args) {
