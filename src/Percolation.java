@@ -14,6 +14,9 @@ public class Percolation {
 	byte closed = 0;
 	byte open = 1;
 	
+	int vTop = gridSize - 1;
+	int vBot = gridSize;
+	
 	// create n-by-n grid, with all sites blocked
 	public Percolation(int n) {
 		
@@ -26,6 +29,9 @@ public class Percolation {
 		for (int i=0; i<gridSize - virtualSites; i++) {
 			openSites[i] = closed;
 		}
+		
+		openSites[vTop] = open;
+		openSites[vBot] = open;
 			
 	}
 	
