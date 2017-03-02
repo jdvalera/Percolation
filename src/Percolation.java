@@ -38,17 +38,32 @@ public class Percolation {
 	// open site (row, col) if it is not open already
 	public void open(int row, int col) {
 		
+		int cell = xyTo1D(row,col);
+		
+		   if (openSites[cell] != open) {
+		
+		   // if Top
+		   if(cell < length) {
+			   uf.union(cell, vTop);
+		   }
+		   
+		   // if Left
+		   
+		   // if Right
+		   
+		   // if Bottom
+		   }
 	}
 	
 	// is site (row, col) open?
 	public boolean isOpen(int row, int col) {
-		return false;
+		return openSites[xyTo1D(row,col)] == open;
 		
 	}
 	
 	// is site (row, col) full?
 	public boolean isFull(int row, int col) {
-		return false;
+		return openSites[xyTo1D(row,col)] == full;
 		
 	}
 	
