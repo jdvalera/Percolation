@@ -13,7 +13,7 @@ public class Percolation {
 	int offset = 1;
 	byte closed = 0;
 	byte open = 1;
-	
+	byte full = 2;
 	int vTop = gridSize - 1;
 	int vBot = gridSize;
 	
