@@ -31,7 +31,7 @@ public class Percolation {
 	// create n-by-n grid, with all sites blocked
 	public Percolation(int n) {
 		
-		if(n <= 0) throw new IndexOutOfBoundsException("out of bounds");
+		if(n <= 0) throw new IllegalArgumentException("out of bounds");
 		
 		gridSize = (n*n) + virtualSites;
 		length = n;
