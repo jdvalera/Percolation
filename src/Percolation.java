@@ -26,9 +26,12 @@ public class Percolation {
 	private byte open = 1;
 	private int vTop;
 	private int vBot;
+	private int openCount;
 	
 	// create n-by-n grid, with all sites blocked
 	public Percolation(int n) {
+		
+		if(n <= 0) throw new IndexOutOfBoundsException("out of bounds");
 		
 		gridSize = (n*n) + virtualSites;
 		length = n;
@@ -64,11 +67,11 @@ public class Percolation {
 		int bot = row+1;
 		int left = col-1;
 		int right = col+1;
-		boolean isFUll = isFull(row,col);
 		
 		if (openSites[cell] != open) {
 			  
 			openSites[cell] = open;
+			openCount++;
 			   
 		   // if Top
 		   if(row == 1) {
@@ -129,7 +132,7 @@ public class Percolation {
 	
 	// number of open sites
 	public int numberOfOpenSites() {
-		return uf.count();
+		return openCount;
 		
 	}
 	
@@ -152,7 +155,9 @@ public class Percolation {
 
 	public static void main(String[] args) {
 		Percolation p = new Percolation(3);
+		System.out.println(p.numberOfOpenSites());
 		p.open(1,1);
+		System.out.println(p.numberOfOpenSites());
 		p.open(2,1);
 		p.open(3,1);
 		System.out.println(p.percolates());
