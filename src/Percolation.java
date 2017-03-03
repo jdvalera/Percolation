@@ -95,6 +95,7 @@ public class Percolation {
 		   } else {
 			   if(isOpen(bot,col)) {
 			    	  uf.union(cellB, cell);
+			    	  uf2.union(cellB, cell);
 			      }
 		   }
 		}
