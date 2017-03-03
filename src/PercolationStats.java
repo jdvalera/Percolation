@@ -25,8 +25,14 @@ public class PercolationStats {
 		for(int i=0; i<trials; i++) {
 			
 			while(!p.percolates()) {
-				int x = StdRandom.uniform(1, n);
-				int y = StdRandom.uniform(1, n);
+				int x; 
+				int y;
+				
+				do {
+					x = StdRandom.uniform(1, n);
+					y = StdRandom.uniform(1, n);
+				} while(p.isOpen(x, y));
+				
 				p.open(x, y);
 				count++;
 			}
