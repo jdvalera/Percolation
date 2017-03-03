@@ -50,7 +50,7 @@ public class PercolationStats {
 	
 	// sample standard deviation of percolation threshold
 	public double stddev() {
-		return (length==1) ? 1 : StdStats.stddev(trialRes);
+		return (T==1) ? 1 : StdStats.stddev(trialRes);
 		
 	}
 	
