@@ -1,3 +1,16 @@
+/*----------------------------------------------------------------
+ *  Author:        John Valera
+ *  Written:       3/2/2017
+ *  Last updated:  3/3/2017
+ *
+ *  Compilation:   javac Percolation.java
+ *  Execution:     java Percolation arg[0]
+ *  
+ *  Creates a NxN grid and allows for opening cells and checking for
+ *  percolation, if cell is open, and if cell is full
+ *
+ *    
+ *----------------------------------------------------------------*/
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
@@ -6,15 +19,11 @@ public class Percolation {
 	WeightedQuickUnionUF uf2;
 	int gridSize;
 	int length;
-	// 0 - Closed,
-	// 1 - Open
-	// 2 - Full
 	byte[] openSites;
 	int virtualSites = 2;
 	int offset = 1;
 	byte closed = 0;
 	byte open = 1;
-	byte full = 2;
 	int vTop;
 	int vBot;
 	
@@ -142,8 +151,7 @@ public class Percolation {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Percolation p = new Percolation(1);
+		Percolation p = new Percolation(5);
 		p.open(1,1);
 		p.open(2,1);
 		p.open(3,1);

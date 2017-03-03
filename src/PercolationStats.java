@@ -1,3 +1,15 @@
+/*----------------------------------------------------------------
+ *  Author:        John Valera
+ *  Written:       3/3/2017
+ *  Last updated:  3/3/2017
+ *
+ *  Compilation:   javac PercolationStats.java
+ *  Execution:     java PercolationStats arg[0] arg[1]
+ *  
+ *  Does Monte Carlo simulation on percolation
+ *
+ *    
+ *----------------------------------------------------------------*/
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
@@ -14,6 +26,8 @@ public class PercolationStats {
 	int length;
 	
 	public PercolationStats(int n, int trials) {	
+		checkBoundary(n,trials);
+		
 		int count = 0;
 		
 		gridSize = n*n;
@@ -53,7 +67,7 @@ public class PercolationStats {
 	
 	// sample standard deviation of percolation threshold
 	public double stddev() {
-		return (T==1) ? 1 : StdStats.stddev(trialRes);
+		return (T==1) ? Double.NaN : StdStats.stddev(trialRes);
 		
 	}
 	
@@ -65,6 +79,13 @@ public class PercolationStats {
 	// high endpoint of 95% confidence interval 
 	public double confidenceHi() {
 		return (mean()+((1.96*stddev())/Math.sqrt(T)));
+	}
+	
+	private void checkBoundary(int x, int y) {
+		if(x <= 0 || y <= 0 ) {
+			throw new IndexOutOfBoundsException("out of bounds");
+		}
+		
 	}
 
 	public static void main(String[] args) {
