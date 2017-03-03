@@ -11,6 +11,7 @@ public class PercolationStats {
 	double cL;
 	double cH;
 	int T;
+	int length;
 	
 	// perform trials independent experiments on an n-by-n grid
 	public PercolationStats(int n, int trials) {	
@@ -43,7 +44,7 @@ public class PercolationStats {
 	
 	// sample standard deviation of percolation threshold
 	public double stddev() {
-		return StdStats.stddev(trialRes);
+		return (length==1) ? 1 : StdStats.stddev(trialRes);
 		
 	}
 	
