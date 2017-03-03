@@ -13,7 +13,6 @@ public class PercolationStats {
 	int T;
 	int length;
 	
-	// perform trials independent experiments on an n-by-n grid
 	public PercolationStats(int n, int trials) {	
 		int count = 0;
 		
@@ -28,9 +27,6 @@ public class PercolationStats {
 			while(!p.percolates()) {
 				int x;
 				int y;
-				
-				//int x = StdRandom.uniform(n)+1; 
-				//int y = StdRandom.uniform(n)+1;
 				
 				do {
 					x = StdRandom.uniform(n)+1; 
@@ -72,12 +68,12 @@ public class PercolationStats {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		PercolationStats p = new PercolationStats(200, 100);
-		System.out.println(p.mean());
-		System.out.println(p.stddev());
-		System.out.println(p.confidenceLo());
-		System.out.println(p.confidenceHi());
+		PercolationStats p = new PercolationStats(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+		System.out.println("mean = " + p.mean());
+		System.out.println("stddev = " + p.stddev());
+		System.out.println("95% confidence interval = " + "["+p.confidenceLo()+", "
+				+ p.confidenceHi() + "]");
+		
 
 	}
 
