@@ -22,6 +22,7 @@ public class PercolationStats {
 
 	
 	public PercolationStats(int n, int trials) {	
+		
 		checkBoundary(n,trials);
 		
 		int count = 0;
@@ -77,9 +78,9 @@ public class PercolationStats {
 		return (mean()+((1.96*stddev())/Math.sqrt(T)));
 	}
 	
-	private void checkBoundary(int x, int y) {
-		if(x <= 0 || y <= 0 ) {
-			throw new IndexOutOfBoundsException("out of bounds");
+	private void checkBoundary(int N, int trials) {
+		if(N <= 0 || trials <= 0 ) {
+			throw new IllegalArgumentException("out of bounds");
 		}
 		
 	}
