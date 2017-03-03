@@ -143,7 +143,7 @@ public class Percolation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Percolation p = new Percolation(3);
+		Percolation p = new Percolation(1);
 		p.open(1,1);
 		p.open(2,1);
 		p.open(3,1);
