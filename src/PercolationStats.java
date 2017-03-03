@@ -6,6 +6,11 @@ public class PercolationStats {
 	int gridSize;
 	Percolation p;
 	double [] trialRes;
+	double mean;
+	double stddev;
+	double cL;
+	double cH;
+	int T;
 	
 	// perform trials independent experiments on an n-by-n grid
 	public PercolationStats(int n, int trials) {	
@@ -13,6 +18,7 @@ public class PercolationStats {
 		
 		gridSize = n*n;
 		trialRes = new double[gridSize];
+		trials = T;
 		p = new Percolation(gridSize);
 		
 		for(int i=0; i<trials; i++) {
@@ -43,7 +49,7 @@ public class PercolationStats {
 	
 	// low endpoint of 95% confidence of percolation threshold
 	public double confidenceLo() {
-		return 0;
+		return (mean-((1.96*stddev)/Math.sqrt(T)));
 	}
 	
 	// high endpoint of 95% confidence interval 
