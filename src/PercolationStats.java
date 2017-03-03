@@ -15,15 +15,11 @@ import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
 	
-	int gridSize;
-	Percolation p;
-	double [] trialRes;
-	double mean;
-	double stddev;
-	double cL;
-	double cH;
-	int T;
-	int length;
+	private int gridSize;
+	private Percolation p;
+	private double [] trialRes;
+	private int T;
+
 	
 	public PercolationStats(int n, int trials) {	
 		checkBoundary(n,trials);

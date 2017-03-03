@@ -15,17 +15,17 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
 	
-	WeightedQuickUnionUF uf;
-	WeightedQuickUnionUF uf2;
-	int gridSize;
-	int length;
-	byte[] openSites;
-	int virtualSites = 2;
-	int offset = 1;
-	byte closed = 0;
-	byte open = 1;
-	int vTop;
-	int vBot;
+	private WeightedQuickUnionUF uf;
+	private WeightedQuickUnionUF uf2;
+	private int gridSize;
+	private int length;
+	private byte[] openSites;
+	private int virtualSites = 2;
+	private int offset = 1;
+	private byte closed = 0;
+	private byte open = 1;
+	private int vTop;
+	private int vBot;
 	
 	// create n-by-n grid, with all sites blocked
 	public Percolation(int n) {
@@ -151,7 +151,7 @@ public class Percolation {
 	}
 
 	public static void main(String[] args) {
-		Percolation p = new Percolation(5);
+		Percolation p = new Percolation(3);
 		p.open(1,1);
 		p.open(2,1);
 		p.open(3,1);
